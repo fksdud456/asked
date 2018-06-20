@@ -1,0 +1,9 @@
+<h1>Posts#show</h1>
+<p>Find me in app/views/posts/show.html.erb</p>
+
+<p> <%=@post.username%> </p>
+<p> <%=@post.title%> </p>
+<p> <%=@post.content%> </p>
+<a href ="/">집으로</a>
+<a class="btn btn-primary" role="button" href ="/posts/<%=@post.id%>/edit">수정하기</a>
+<a class="btn btn-danger" role="button" href ="/posts/<%=@post.id%>/destroy">삭제하기</a>

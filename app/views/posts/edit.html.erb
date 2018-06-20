@@ -1,0 +1,9 @@
+<h1>Posts#edit</h1>
+<p>Find me in app/views/posts/edit.html.erb</p>
+
+<form action="/posts/<%= @post.id %>/update">
+  USERNAME : <input type="text" name="username" value="<%= @post.username %>"/> <br>
+  TITLE : <input type="text" name="title" value="<%= @post.title %>"/> <br>
+  CONTENTS : <textarea name="content" rows="8" cols="80"> <%= @post.content %> </textarea> <br>
+  <input type="submit" value="뿅!">
+</form>

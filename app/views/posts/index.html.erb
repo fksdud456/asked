@@ -1,0 +1,15 @@
+
+<div class="mt-3 ml-5">
+<div class="align-self-start mr-3 mb-5">
+<a class="btn btn-primary" role="button" href ="/posts/new">새로작성</a>
+</div>
+<% @posts.each do |post| %>
+  <p> USERNAME : <%= post.username %></p>
+  <p> TITLE : <%= post.title %></p>
+  <p> CONTENT : <%= post.content %></p>
+
+  <a class="btn btn-info" role="button" href ="/posts/<%= post.id %>">보기</a>
+  <a class="btn btn-secondary" role="button" href ="/posts/<%= post.id %>/edit">수정하기</a>
+  <hr>
+<% end %>
+</div>
