@@ -1,7 +1,8 @@
 <h1>Posts#new</h1>
 <p>Find me in app/views/posts/new.html.erb</p>
 
-<form action="/posts/create">
+<form action="/posts/create" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
   USERNAME : <input type="text" name="username" /> <br>
   TITLE : <input type="text" name="title" /> <br>
   CONTENTS : <textarea name="content" rows="8" cols="80"></textarea>
