@@ -6,4 +6,4 @@
 <p> <%=@post.content%> </p>
 <a href ="/">집으로</a>
 <a class="btn btn-primary" role="button" href ="/posts/<%=@post.id%>/edit">수정하기</a>
-<a class="btn btn-danger" role="button" href ="/posts/<%=@post.id%>/destroy">삭제하기</a>
+<a class="btn btn-danger" role="button" href ="/posts/<%=@post.id%>" data-method="delete" data-confirm="정말 삭제하실?">삭제하기</a>
