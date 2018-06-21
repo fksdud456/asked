@@ -1,0 +1,13 @@
+<div class="mt-3 ml-5">
+
+<h1>회원가입</h1>
+
+<form action="/users" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+  <p> 이름 : <input type="text" name="username" /> </p>
+  <p> email : <input type="email" name="email" /> <br /> </p>
+  <p> 비밀번호 : <input type="password" name="password" /> <br /> </p>
+  <p> 비밀번호 확인 : <input type="password" name="password_confirm" /> <br /> </p>
+  <input type="submit" value="가입">
+</form>
+</div>

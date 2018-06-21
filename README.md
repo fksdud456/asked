@@ -42,7 +42,7 @@ asked\db\schema.rb 에 적용됐는지 확인
 
 
 
-## HTTP Request
+## HTTP Request (REST)
 
 ### get
 
@@ -59,5 +59,19 @@ asked\db\schema.rb 에 적용됐는지 확인
 # new.html.erb 
 # form 태그 안에 hidden 으로 authenticity_token을 전달해줘야 합니다.
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+```
+
+
+
+### PUT 요청
+
+```ruby
+# html put form 
+# 일반적으로 form method는 'get'과 'post'만 지원
+# 'put' 'delete' 등을 쓰고 싶을 땐 
+<input type="hidden" name="_method" value="put" />
+
+
+
 ```
 
