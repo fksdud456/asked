@@ -24,8 +24,6 @@ class UsersController < ApplicationController
         flash[:alert] = "이미 등록된 이메일 입니다."
         redirect_to :back
       end
-
-
     # # email 검증
     # if User.find_by(email: params[:email])
     #   flash[:alert] = "이미 가입된 이메일입니다."
@@ -42,4 +40,42 @@ class UsersController < ApplicationController
     #   end
     # end
   end
+
+  def login
+
+  end
+
+  def loginprocess
+    user = User.find_by(email: params[:email])
+    # 1. 이메일이 가입되었는지 확인
+    if user
+      # 비밀번호 확인
+      if user.authenticate(params[:password])
+        # 일치하면 로그인, id를 session에 저장
+         session[:user_id] = user.id
+         flash[:notice] = "#{user.username}님 로그인되셨습니다."
+         redirect_to '/'
+       else
+         flash[:alert] = "비밀번호가 다릅니다."
+         redirect_to :back
+       end
+    else
+      # 회원가입 페이지로!
+      flash[:alert] = "가입되지 않은 이메일입니다."
+      redirect_to '/signup'
+    end
+  end
+
+  def logout
+    session.clear
+    flash[:notice] = "로그아웃되셨습니다"
+    redirect_to '/'
+  end
+
+  def posts
+    @user = User.find(params[:id])
+    @posts = user.posts
+
+  end
+
 end

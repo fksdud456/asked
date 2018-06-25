@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   get 'users/index'
-
+  get '/login' => 'users#login'
+  get '/logout' =>'users#logout'
+  post '/loginprocess' => 'users#loginprocess'
   get '/signup' => 'users#new'
   post 'users' => 'users#create'
 
+
   get 'users/create'
+  get 'users/:id/posts' =>'users#posts'
 
   root 'posts#index'
 

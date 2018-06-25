@@ -1,0 +1,13 @@
+<div class="mt-3 ml-5">
+
+<h1>로그인</h1>
+
+<form action="/loginprocess" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+  <p> email : <input type="email" name="email" /> <br /> </p>
+  <p> 비밀번호 : <input type="password" name="password" /> <br /> </p>
+  <input type="submit" value="로그인">
+</form>
+
+<a class="btn bg-dark text-white font-weight-bold faa-parent animated-hover" href="/signup"><i class="fas fa-smile fa-1x text-white faa-bounce"></i> Register </a>
+</div>

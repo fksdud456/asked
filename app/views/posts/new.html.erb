@@ -1,10 +1,10 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
-
+<div class="mt-3 ml-5">
 <form action="/posts" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
-  USERNAME : <input type="text" name="username" /> <br>
-  TITLE : <input type="text" name="title" /> <br>
+  <p> USERNAME : <%= current_user.username %> </p>
+  <p> TITLE : <input type="text" name="title" /> </p>
+  CONTENTS <br />
   CONTENTS : <textarea name="content" rows="8" cols="80"></textarea>
   <input type="submit" value="뿅!">
 </form>
+</div>

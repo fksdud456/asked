@@ -10,23 +10,18 @@
   <link rel="stylesheet" href="fa.css">
 </head>
 <body>
-
   <div class="pos-f-t">
-   <div class="collapse" id="navbarToggleExternalContent">
-     <div class="bg-dark p-4">
-       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-         <li class="nav-item active">
-           <a class="nav-link  text-white" href="/posts/index">Posts<span class="sr-only">(current)</span></a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link text-white" href="#">Link</a>
-         </li>
-       </ul>
-     </div>
-   </div>
    <nav class="navbar navbar-dark bg-dark">
-     <i class="navbar-toggler fas fa-align-justify bg-dark text-white" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation"> list</i>
-     <a class="btn bg-dark text-white font-weight-bold faa-parent animated-hover" href="/signup"><i class="fas fa-smile fa-1x text-white faa-bounce"></i> Register</a>
+     <a class="nav-link  text-white" href="/posts/index">Posts<span class="sr-only">(current)</span></a>
+     <span class="navbar-text">
+         <% if current_user %>
+         <%= current_user.username%>
+         <a class="btn bg-dark text-white font-weight-bold faa-parent animated-hover" href="/logout"><i class="fas fa-smile fa-1x text-white faa-bounce"></i> Logout </a>
+        <% else %>
+         <a class="btn bg-dark text-white font-weight-bold faa-parent animated-hover" href="/signup"><i class="fas fa-smile fa-1x text-white faa-bounce"></i> Register </a>
+         <a class="btn bg-dark text-white font-weight-bold faa-parent animated-hover" href="/login"><i class="fas fa-smile fa-1x text-white faa-bounce"></i> Login </a>
+    <% end %>
+    </span>
    </nav>
   </div>
 <%= render 'layouts/flash' %>

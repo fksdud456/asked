@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authorize, except: [:index]
+
   def index
     @posts = Post.all
   end
@@ -7,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.create(username: params[:username], title: params[:title], content: params[:content])
+    post = Post.create(user_id: current_user.user_id, title: params[:title], content: params[:content])
     redirect_to "/posts/#{post.id}"
   end
 
@@ -23,7 +25,7 @@ class PostsController < ApplicationController
 
   def update
     post = Post.find(params[:id])
-    post.update(username: params[:username], title: params[:title], content: params[:content])
+    post.update(user_id: current_user.user_id, title: params[:title], content: params[:content])
     redirect_to "/posts/#{post.id}"
   end
 
