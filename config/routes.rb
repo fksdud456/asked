@@ -1,31 +1,33 @@
 Rails.application.routes.draw do
-  get 'users/index'
-  get '/login' => 'users#login'
-  get '/logout' =>'users#logout'
-  post '/loginprocess' => 'users#loginprocess'
-  get '/signup' => 'users#new'
-  post 'users' => 'users#create'
-
-
-  get 'users/create'
-  get 'users/:id/posts' =>'users#posts'
-
   root 'posts#index'
 
-  get 'posts/index'
+  get 'users/index'
+  get '/signup' => 'users#new'
+  post 'users' => 'users#create'
+  get 'users/:id/posts' =>'users#posts'
 
-  post 'posts' => 'posts#create'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' =>'sessions#destroy'
 
-  get 'posts/edit'
-
-  get 'posts/update'
-
-  get 'posts/new'
-  get 'posts/destroy'
-  get 'posts/:id' => 'posts#show'
-  get 'posts/:id/edit' =>'posts#edit'
-  put 'posts/:id' => 'posts#update'
-  delete 'posts/:id' => 'posts#destroy'
+  resources :posts
+  # get 'users/create'
+  #
+  #
+  # get 'posts/index'
+  #
+  # post 'posts' => 'posts#create'
+  #
+  # get 'posts/edit'
+  #
+  # get 'posts/update'
+  #
+  # get 'posts/new'
+  # get 'posts/destroy'
+  # get 'posts/:id' => 'posts#show'
+  # get 'posts/:id/edit' =>'posts#edit'
+  # put 'posts/:id' => 'posts#update'
+  # delete 'posts/:id' => 'posts#destroy'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
